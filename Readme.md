@@ -196,21 +196,19 @@ $$
 - La deuxième gaussienne sera définie comme :
 
 $$
-\left\{
-\begin{array}{lcl}
+\begin{cases}
 g_{2}(r) & = & e^{-\frac{1}{2}\left(\frac{(r\mod 1)-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[ +1; +2\right[ \\
 g_{2}(r) & = & 0\,\,\textrm{sinon}
-\end{array}\right.
-  $$
+\end{cases}
+$$
 
 - Et enfin une troisième gaussienne définie comme : 
 
 $$
-\left\{
-\begin{array}{lcl}
+\begin{cases}
 g_{3}(r) & = & 0,667.e^{-\frac{1}{2}\left(\frac{(r\mod 1)-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[ +2; +3\right[ \\
 g_{3}(r) & = & 0\,\,\textrm{sinon}
-\end{array}\right.
+\end{cases}
 $$
 
 Notons que la première gausienne prenant ses valeurs dans $[0;0.5]$ fournira une énergie négative, donc à baisser la vitalité des cellules (rappelons que pour calculer le taux de croissance (l'énergie fournie), on multiplie la valeur calculée par la convolution par deux puis on retrance un) tandis que la troisième gaussienne aura uniquement cette tendance (statistiquement deux fois sur trois) à fournir une énergie négative (permettant de nettoyer devant un front de cellule remplie de vitalité). Quant à la seconde gaussienne, on retrouve la gaussienne traditionnelle permettant d'être proche d'un jeu de la vie pour le comportement.
@@ -245,31 +243,29 @@ Cette convolution sera composée de trois anneaux concentriques :
 - *Première gaussienne* :  
 
 $$
-\left\{
+\begin{cases}
 \begin{array}{lcl}
 g_{1}(r) & = & e^{-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[0;1\right[\\
 g_{1}(r) & = & 0\,\,\textrm{sinon}
-\end{array}\right.
+\end{cases}
 $$
 
 - *Seconde gaussienne* : 
 
 $$
-\left\{
-\begin{array}{lcl}
+\begin{cases}
 g_{2}(r) & = & \frac{5}{12}.e^{-\frac{1}{2}\left(\frac{(r\mod 1)-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[1;2\right[\\
 g_{2}(r) & = & 0\,\,\textrm{sinon}
-\end{array}\right.
+\end{cases}
 $$
 
 - *Troisième gaussienne* : 
 
 $$
-\left\{
-\begin{array}{lcl}
+\begin{cases}
 g_{3}(r) & = & \frac{2}{3}.e^{-\frac{1}{2}\left(\frac{(r\mod 1)-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[2;3\right[\\
 g_{3}(r) & = & 0\,\,\textrm{sinon}
-\end{array}\right.
+\end{cases}
 $$
 
 #### Deuxième convolution
@@ -279,21 +275,19 @@ Cette convolution sera composée de deux anneaux concentriques :
 - *Première gaussienne* : 
 
 $$
-\left\{
-\begin{array}{lcl}
+\begin{cases}
 g_{1}(r) & = & \frac{1}{12}.e^{-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[0;1\right[\\
 g_{1}(r) & = & 0\,\,\textrm{sinon}
-\end{array}\right.
+\end{cases}
 $$
 
 - *Seconde gaussienne* : 
 
 $$
-\left\{
-\begin{array}{lcl}
+\begin{cases}
 g_{2}(r) & = & e^{-\frac{1}{2}\left(\frac{(r\mod 1)-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[1;2\right[\\
 g_{2}(r) & = & 0\,\,\textrm{sinon}
-\end{array}\right.
+\end{cases}
 $$
 
 #### Troisième convolution
@@ -301,11 +295,10 @@ $$
 Cette convolution sera composée que d'un seul anneau :
 
 $$
-\left\{
-\begin{array}{lcl}
+\begin{cases}
 g_{1}(r) & = & e^{-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[0;1\right[\\
 g_{1}(r) & = & 0\,\,\textrm{sinon}
-\end{array}\right.
+\end{cases}
 $$
 
 #### Fonction de croissance
