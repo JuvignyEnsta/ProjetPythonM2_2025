@@ -133,17 +133,17 @@ Dans cette partie (et les suivantes), on va choisir :
 
 - Pour convolution, la discrétisation d'une fonction gaussienne dépendant de la distance $d$ (d'une cellule aux autres cellules) :
 
-  $$
+$$
   g_{\mu,\sigma}(d) = e^{-\frac{1}{2}\left(\frac{d-\mu}{\sigma}\right)^{2}}
-  $$
+$$
 
   Afin que l'étendue de la convolution ne soit pas "infinie", on coupera la convolution dès que la distance est supérieur à un (pas d'interaction entre deux cellules si la distance est supérieure à un)
 
 - Pour fonction d'accroissement $G$ un filtre gaussien centré en zéro :
 
-  $$
+$$
   g^{c}_{\mu,\sigma}(x) = -1 + 2.e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^{2}}
-  $$
+$$
 
 Dans un premier temps, pour valeurs initiales pour la vitalité, on se contentera de prendre une fonction gaussienne centrée sur la grille avec une valeur de $r=36$ puis considéré pour le reste de la simulation une valeur de $r=13$.
 
