@@ -184,28 +184,36 @@ On testera dans un premier temps l'accélération avec l'`orbium` vu dans la sec
 
 Afin de trouver des formes plus complexes, nous allons maintenant prendre un noyau de convolution plus complexe qui prendra la forme d'une somme de plusieurs gaussiennes ayant chacun un support différent (où la fonction est non nulle) en forme d'anneau :
 
-- La première gaussienne sera définie comme : $$
+- La première gaussienne sera définie comme : 
+
+$$
 \left\{
 \begin{array}{lcl}
 g_{1}(r) & = & 0,5.e^{-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[0;1\right[ \\
 g_{1}(r) & = & 0\,\,\textrm{sinon}
 \end{array}
 \right.
-  $$
-- La deuxième gaussienne sera définie comme : $$
+$$
+
+- La deuxième gaussienne sera définie comme : 
+
+$$
 \left\{
 \begin{array}{lcl}
 g_{2}(r) & = & e^{-\frac{1}{2}\left(\frac{(r\mod 1)-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[ +1; +2\right[ \\
 g_{2}(r) & = & 0\,\,\textrm{sinon}
 \end{array}\right.
   $$
-- Et enfin une troisième gaussienne définie comme : $$
+
+- Et enfin une troisième gaussienne définie comme : 
+
+$$
 \left\{
 \begin{array}{lcl}
 g_{3}(r) & = & 0,667.e^{-\frac{1}{2}\left(\frac{(r\mod 1)-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[ +2; +3\right[ \\
 g_{3}(r) & = & 0\,\,\textrm{sinon}
 \end{array}\right.
-  $$
+$$
 
 Notons que la première gausienne prenant ses valeurs dans $[0;0.5]$ fournira une énergie négative, donc à baisser la vitalité des cellules (rappelons que pour calculer le taux de croissance (l'énergie fournie), on multiplie la valeur calculée par la convolution par deux puis on retrance un) tandis que la troisième gaussienne aura uniquement cette tendance (statistiquement deux fois sur trois) à fournir une énergie négative (permettant de nettoyer devant un front de cellule remplie de vitalité). Quant à la seconde gaussienne, on retrouve la gaussienne traditionnelle permettant d'être proche d'un jeu de la vie pour le comportement.
 
@@ -236,57 +244,71 @@ Pour toutes les convolutions, on prend $\mu = 0.5$ et $\sigma = 0.15$.
 
 Cette convolution sera composée de trois anneaux concentriques :
 
-- *Première gaussienne* :  $$
-\left\{
-\begin{array}{lcl}
-g_{1}(r) & = & e^{-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[0;1\right[\\
-g_{1}(r) & = & 0\,\,\textrm{sinon}
-\end{array}\right.
-  $$
-- *Seconde gaussienne* : $$
-\left\{
-\begin{array}{lcl}
-g_{2}(r) & = & \frac{5}{12}.e^{-\frac{1}{2}\left(\frac{(r\mod 1)-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[1;2\right[\\
-g_{2}(r) & = & 0\,\,\textrm{sinon}
-\end{array}\right.
-  $$
-- *Troisième gaussienne* : $$
-\left\{
-\begin{array}{lcl}
-g_{3}(r) & = & \frac{2}{3}.e^{-\frac{1}{2}\left(\frac{(r\mod 1)-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[2;3\right[\\
-g_{3}(r) & = & 0\,\,\textrm{sinon}
-\end{array}\right.
-  $$
+- *Première gaussienne* :  
 
-#### Deuxième convolution
-
-Cette convolution sera composée de deux anneaux concentriques :
-
-- *Première gaussienne* : $$
-\left\{
-\begin{array}{lcl}
-g_{1}(r) & = & \frac{1}{12}.e^{-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[0;1\right[\\
-g_{1}(r) & = & 0\,\,\textrm{sinon}
-\end{array}\right.
-  $$
-- *Seconde gaussienne* : $$
-\left\{
-\begin{array}{lcl}
-g_{2}(r) & = & e^{-\frac{1}{2}\left(\frac{(r\mod 1)-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[1;2\right[\\
-g_{2}(r) & = & 0\,\,\textrm{sinon}
-\end{array}\right.
-  $$
-
-#### Troisième convolution
-
-Cette convolution sera composée que d'un seul anneau :
 $$
 \left\{
 \begin{array}{lcl}
 g_{1}(r) & = & e^{-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[0;1\right[\\
 g_{1}(r) & = & 0\,\,\textrm{sinon}
 \end{array}\right.
-  $$
+$$
+
+- *Seconde gaussienne* : 
+
+$$
+\left\{
+\begin{array}{lcl}
+g_{2}(r) & = & \frac{5}{12}.e^{-\frac{1}{2}\left(\frac{(r\mod 1)-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[1;2\right[\\
+g_{2}(r) & = & 0\,\,\textrm{sinon}
+\end{array}\right.
+$$
+
+- *Troisième gaussienne* : 
+
+$$
+\left\{
+\begin{array}{lcl}
+g_{3}(r) & = & \frac{2}{3}.e^{-\frac{1}{2}\left(\frac{(r\mod 1)-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[2;3\right[\\
+g_{3}(r) & = & 0\,\,\textrm{sinon}
+\end{array}\right.
+$$
+
+#### Deuxième convolution
+
+Cette convolution sera composée de deux anneaux concentriques :
+
+- *Première gaussienne* : 
+
+$$
+\left\{
+\begin{array}{lcl}
+g_{1}(r) & = & \frac{1}{12}.e^{-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[0;1\right[\\
+g_{1}(r) & = & 0\,\,\textrm{sinon}
+\end{array}\right.
+$$
+
+- *Seconde gaussienne* : 
+
+$$
+\left\{
+\begin{array}{lcl}
+g_{2}(r) & = & e^{-\frac{1}{2}\left(\frac{(r\mod 1)-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[1;2\right[\\
+g_{2}(r) & = & 0\,\,\textrm{sinon}
+\end{array}\right.
+$$
+
+#### Troisième convolution
+
+Cette convolution sera composée que d'un seul anneau :
+
+$$
+\left\{
+\begin{array}{lcl}
+g_{1}(r) & = & e^{-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[0;1\right[\\
+g_{1}(r) & = & 0\,\,\textrm{sinon}
+\end{array}\right.
+$$
 
 #### Fonction de croissance
 
@@ -342,6 +364,7 @@ R = 12 # Rayon d'action en pixels
 où ```b``` sont les rayons des différents anneaux composant la convolution, ```r``` le rayon d'action unité de la convolution (premier anneau rayon ```r.R```, deuxième anneau rayon ```2r.R```, etc.), ```m``` la valeur de $\mu$ pour la fonction de croissance associée à cette convolution, ```s``` la valeur de $\sigma$ pour la fonction de croissance associée à cette convolution, ```h``` le cœfficient de pondération pour la fonction de croissance, ```c0``` le canal (0 = Rouge, 1 = Vert, 2 = Bleu) sur lequel on applique la convolution, ```c1``` le canal (même code que pour ```c0```) sur lequel on rajoute la contribution pondérée de la fonction de croissance.
 
 Pour le pattern initial, on prendra le pattern suivant :
+
 ```python
 N = 128
 M = int(np.ceil((16*N)/9))
