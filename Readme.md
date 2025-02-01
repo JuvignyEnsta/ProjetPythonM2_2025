@@ -244,7 +244,6 @@ Cette convolution sera composée de trois anneaux concentriques :
 
 $$
 \begin{cases}
-\begin{array}{lcl}
 g_{1}(r) & = & e^{-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[0;1\right[\\
 g_{1}(r) & = & 0\,\,\textrm{sinon}
 \end{cases}
