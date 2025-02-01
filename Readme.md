@@ -184,18 +184,18 @@ On testera dans un premier temps l'accélération avec l'`orbium` vu dans la sec
 
 Afin de trouver des formes plus complexes, nous allons maintenant prendre un noyau de convolution plus complexe qui prendra la forme d'une somme de plusieurs gaussiennes ayant chacun un support différent (où la fonction est non nulle) en forme d'anneau :
 
-- La première gaussienne sera définie comme : 
+- La première gaussienne sera définie comme :
 
 $$
-\left\{
+\begin{cases}
 \begin{array}{lcl}
 g_{1}(r) & = & 0,5.e^{-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}}\,\,\textrm{pour}\,\,r\in\left[0;1\right[ \\
 g_{1}(r) & = & 0\,\,\textrm{sinon}
 \end{array}
-\right.
+\end{cases}
 $$
 
-- La deuxième gaussienne sera définie comme : 
+- La deuxième gaussienne sera définie comme :
 
 $$
 \left\{
