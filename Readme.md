@@ -74,6 +74,7 @@ s_{ij} = \sum_{i=-N_{i}+1}^{N_{i}-1}\sum_{j=-N_{j}+1}^{+N_{j}-1} c_{ij}.g_{ij}
 $$
 
 En choisissant
+
 $$
 C = \left(
   \begin{array}{ccc}
