@@ -128,7 +128,7 @@ Nous allons changer et généraliser plusieurs choses par rapport au jeu de la v
 - Le temps est également considéré comme continue et discrétisé avec un pas de temps $dt$
 - Au centre de chaque élément du maillage d'espace, on associé une valeur $V_{i,j}$ scalaire continue comprise entre zéro et un qu'on nommera **vitalité** dont la valeur vaut zéro si aucune "cellule" vivante n'occupe une partie de cet élément, un si une cellule bien vivante occupe complètement cet élément, et une valeur intermédiaire si la cellule occupe une partie de cet élément.
 - On définit comme **énergie** $E_{i,j}$ le résultat d'une convolution prenant en considération un élément du maillage et calculant en fonction de la vitalité de cet élément et des éléments proches (dont la distance est inférieure à un).
-- On va définir une fonction d'**accroissement** $G$ qui en fonction de l'énergie calculé pour un élément $C_{i,j}$ et ses voisins calcule la nouvelle vitalité $V_{i,j}$ de $C_{i,j}$ pour le pas de temps suivant par la formule $E_{i,j} \leftarrow E_{i,j} + dt.G(i,j)$
+- On va définir une fonction d'**accroissement** $G$ qui en fonction de l'énergie calculé pour un élément $C_{i,j}$ et ses voisins calcule la nouvelle vitalité $V_{i,j}$ de $C_{i,j}$ pour le pas de temps suivant par la formule $V_{i,j} \leftarrow V_{i,j} + dt.G(i,j)$
 
 Dans cette partie (et les suivantes), on va choisir :
 
