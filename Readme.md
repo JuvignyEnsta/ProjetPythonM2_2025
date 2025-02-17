@@ -140,7 +140,7 @@ $$
 
   Afin que l'étendue de la convolution ne soit pas "infinie", on coupera la convolution dès que la distance est supérieur à un (pas d'interaction entre deux cellules si la distance est supérieure à un)
 
-- Pour fonction d'accroissement $G$ un filtre gaussien centré en zéro :
+- Pour fonction d'accroissement $G$ un filtre gaussien centré en zéro avec pour paramètre par défaut $\mu=0.15$ et $\sigma=0.015$ :
 
 $$
   g^{c}_{\mu,\sigma}(x) = -1 + 2.e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^{2}}
