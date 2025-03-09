@@ -227,6 +227,9 @@ pos_x, pos_y = 70, 10
 cells[pos_x:pos_x + hydrogeminium.shape[0], pos_y:pos_y + hydrogeminium.shape[1]] = hydrogeminium
 ```
 
+Pour la distance euclidienne, on prendra $r=18$ pour l'hydrogenium
+et pour la fonction de croissance on prendra  $\mu = 0.26$ et $\sigma = 0.036$.
+
 ### 8. Généralisation de la fonction de croissance
 
 Toujours dans le soucis de généraliser, nous allons généraliser la fonction de croissance en la décomposant en $n$ fonctions de croissances $g_{i}$ qui utiliseront chacune une convolution $K_{i}$ différente. Ces fonctions $g_{i}$ utiliseront chacune une fonction gaussienne dont les paramètres $\mu_{i}$ et $\sigma_{i}$ seront différentes pour chaque $g_{i}$.
@@ -303,13 +306,13 @@ $$
 
 #### Fonction de croissance
 
-La fonction de croissance quant à elle est la somme de plusieurs fonctions de croissance qui sont toutes des gaussiennes dont les paramètres $\mu$ et $\sigma$  varient :
+La fonction de croissance quant à elle est la moyenne de plusieurs fonctions de croissance qui sont toutes des gaussiennes dont les paramètres $\mu$ et $\sigma$  varient :
 
 - *Première fonction de croissance* : $\mu = 0,156$ et $\sigma = 0,0118$
 - *Deuxième fonction de croissance* : $\mu = 0,193$ et $\sigma = 0,049$
 - *Troisième fonction de croissance* : $\mu = 0,342$ et $\sigma = 0,0891$
 
-Pour le test, on prendra le pattern initial suivant :
+Pour le test, on prendra leav pattern initial suivant :
 
 ```python
 N = 128
@@ -321,6 +324,9 @@ cells = np.zeros((N,M))
 pos_x, pos_y = 100, 100
 cells[pos_x:pos_x + fish.shape[0], pos_y:pos_y + fish.shape[1]] = fish
 ```
+
+avec la distance euclidienne définie avec $r=10$.
+
 
 ### 9. Généralisation à des canaux couleurs multiples
 
@@ -349,7 +355,7 @@ kernels = [
   {"b":[1],"m":0.262,"s":0.0877,"h":0.42,"r":0.68,"c0":1,"c1":2},
   {"b":[1/6,1,0],"m":0.412,"s":0.1101,"h":0.43,"r":0.82,"c0":2,"c1":0},
   {"b":[1],"m":0.201,"s":0.0786,"h":0.278,"r":0.82,"c0":2,"c1":1}]
-R = 12 # Rayon d'action en pixels
+R = 12 # Pour la distance euclidienne en nombre de pixels
 ```
 
 où ```b``` sont les rayons des différents anneaux composant la convolution, ```r``` le rayon d'action unité de la convolution (premier anneau rayon ```r.R```, deuxième anneau rayon ```2r.R```, etc.), ```m``` la valeur de $\mu$ pour la fonction de croissance associée à cette convolution, ```s``` la valeur de $\sigma$ pour la fonction de croissance associée à cette convolution, ```h``` le cœfficient de pondération pour la fonction de croissance, ```c0``` le canal (0 = Rouge, 1 = Vert, 2 = Bleu) sur lequel on applique la convolution, ```c1``` le canal (même code que pour ```c0```) sur lequel on rajoute la contribution pondérée de la fonction de croissance.
